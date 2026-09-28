@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#0f172a">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0f172a"/>
+    <g stroke="#22d3ee" stroke-width="6" fill="none" opacity="0.85">
+      <rect x="470" y="150" width="260" height="70" rx="8"/>
+      <rect x="470" y="290" width="260" height="70" rx="8"/>
+      <rect x="470" y="430" width="260" height="70" rx="8"/>
+      <rect x="470" y="570" width="260" height="70" rx="8"/>
+      <line x1="600" y1="220" x2="600" y2="290"/>
+      <line x1="600" y1="360" x2="600" y2="430"/>
+      <line x1="600" y1="500" x2="600" y2="570"/>
+    </g>
+    <circle cx="600" cy="465" r="14" fill="#0ea5e9"/>
+    <text x="600" y="710" text-anchor="middle" fill="#22d3ee" font-family="sans-serif" font-size="30" font-weight="700" letter-spacing="4">CONTROL PLANE</text>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Cognous</title>
+  <meta name="description" content="Notes from the Cognous team on governing enterprise AI — authority, evidence, decision lineage, and the architecture behind governed AI action.">
+  <meta property="og:title" content="Cognous — Blog">
+  <meta property="og:description" content="Notes on governing enterprise AI.">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/styles.css">
+  <script src="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0f172a; font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+    p { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { color: #22d3ee; }
+    .post-row { display: grid; grid-template-columns: 132px 1fr 78px; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid rgba(34,211,238,0.08); transition: border-color 0.15s; }
+    .post-row:hover { border-color: rgba(34,211,238,0.30); }
+    .post-row:hover .post-title { color: #22d3ee; }
+    .post-title { font-family: 'Newsreader', serif; font-size: 21px; font-weight: 500; line-height: 1.25; color: #e2e8f0; transition: color 0.15s; margin-bottom: 6px; }
+    .t-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #22d3ee; }
+    .t-h1  { font-size: 46px; font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h2  { font-size: 28px; font-weight: 500; line-height: 1.15; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h3  { font-size: 15px; font-weight: 700; line-height: 1.3; color: #e2e8f0; }
+    .t-body { font-size: 15px; line-height: 1.7; color: #94a3b8; }
+    .t-sm  { font-size: 13px; line-height: 1.6; color: #94a3b8; }
+    .t-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+    .t-meta  { font-size: 12px; color: #64748b; }
+    .btn-primary { background: #0ea5e9; color: #0f172a; display: inline-flex; align-items: center; gap: 8px; font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 22px; height: 42px; transition: background 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-primary:hover { background: #38bdf8; }
+    .btn-secondary { color: #22d3ee; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); display: inline-flex; align-items: center; gap: 8px; font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 18px; height: 42px; transition: background 0.15s, border-color 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-secondary:hover { background: rgba(34,211,238,0.15); border-color: rgba(34,211,238,0.45); }
+    .nav-link { font-size: 13px; color: #94a3b8; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover { color: #e2e8f0; }
+    .nav-active { color: #22d3ee !important; }
+    .card-hover { transition: background 0.15s, border-color 0.15s; }
+    a.card-hover:hover { background: #334155 !important; border-color: rgba(34,211,238,0.28) !important; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .t-mono { font-family: Consolas, 'SF Mono', Menlo, monospace; }
+    .chip { font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+    .chip-dot { width: 5px; height: 5px; border-radius: 50%; background: #22d3ee; flex-shrink: 0; }
+    .cx-table { width: 100%; border-collapse: collapse; }
+    .cx-table th { text-align: left; padding: 12px 16px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; border-bottom: 1px solid rgba(34,211,238,0.18); font-weight: 700; }
+    .cx-table td { padding: 14px 16px; border-bottom: 1px solid rgba(34,211,238,0.08); color: #94a3b8; vertical-align: top; font-size: 13px; line-height: 1.55; }
+    .cx-table tr:last-child td { border-bottom: none; }
+    .cx-layer { color: #e2e8f0; font-weight: 600; white-space: nowrap; }
+    .cx-row-emphasis td { background: rgba(34,211,238,0.06); }
+    .cx-row-emphasis .cx-layer { color: #22d3ee; }
+    .flow-node { background: #24334a; border: 1px solid rgba(34,211,238,0.12); border-radius: 5px; padding: 10px 14px; display: flex; flex-direction: column; gap: 2px; }
+    .flow-node-hl { border-color: rgba(34,211,238,0.4); background: #26384f; box-shadow: 0 0 20px rgba(34,211,238,0.08); }
+    .tier { border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 16px 20px; background: #1e293b; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .tier-mid { border-color: rgba(34,211,238,0.4); background: #24334a; box-shadow: 0 0 28px rgba(34,211,238,0.08); }
+    .tier-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; font-weight: 700; width: 150px; flex-shrink: 0; }
+    .tier-mid .tier-label { color: #22d3ee; }
+    .cta-link { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; background: #1e293b; transition: background 0.15s, border-color 0.15s; }
+    .cta-link:hover { background: #24334a; border-color: rgba(34,211,238,0.3); }
+    @media (max-width: 1080px) { .nav-items { display: none !important; } }
+    @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr !important; } .feature-grid { grid-template-columns: 1fr !important; } }
+    @media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr) !important; } .grid-5 { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media (max-width: 768px) {
+      .section-wrap { padding: 0 24px !important; }
+      .grid-5, .grid-4, .grid-3, .grid-2, .stack-grid { grid-template-columns: 1fr !important; }
+      .t-h1 { font-size: 36px !important; }
+      .tier { flex-direction: column; align-items: stretch; }
+      .tier-label { width: auto; }
+      .post-row { grid-template-columns: 1fr; gap: 8px; }
+      .post-read { display: none; }
+    }
+  
+    .nav-drop { position: relative; }
+    .nav-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 14px; }
+    .nav-drop:hover .nav-menu, .nav-drop:focus-within .nav-menu { display: block; }
+    a:hover { color: #22d3ee; }
+    a.card-hover:hover { color: inherit; }
+    .btn-secondary:hover { color: #22d3ee; }
+  
+    @media (max-width: 1080px) {
+      .nav-burger { display: flex !important; }
+      #nav-toggle:checked ~ .nav-items { display: flex !important; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; background: #131f30; border-bottom: 1px solid rgba(34,211,238,0.16); box-shadow: 0 16px 40px rgba(0,0,0,0.55); padding: 8px 24px 20px; max-height: calc(100vh - 70px); overflow-y: auto; }
+      #nav-toggle:checked ~ .nav-items > a { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-drop { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-menu { display: block; position: static; padding-top: 6px; }
+      #nav-toggle:checked ~ .nav-items .nav-menu > div { width: 100% !important; box-shadow: none !important; background: transparent !important; border: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</helmet>
+
+<div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: linear-gradient(90deg, #0ea5e9 0%, #22d3ee 55%, transparent 100%);"></div>
+
+<nav style="position: fixed; top: 2px; left: 0; right: 0; z-index: 100; height: 62px; background: rgba(15,23,42,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(34,211,238,0.10);">
+  <div style="height: 100%; display: flex; align-items: center; padding: 0 32px; gap: 28px; justify-content: space-between; max-width: 1400px; margin: 0 auto;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+      <svg height="18" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block;">
+        <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+        <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+        <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+        <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+        <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" style="display: none;" aria-hidden="true">
+    <div class="nav-items" style="display: flex; align-items: center; gap: 26px; flex: 1;">
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Platform
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 350px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="platform.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Cognous Platform</span>
+              <span class="t-meta">The execution and governance layer</span>
+            </a>
+            <a href="iss.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">ISS substrate</span>
+              <span class="t-meta">Governed reasoning beneath any model</span>
+            </a>
+            <a href="navalia.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Navalia</span>
+              <span class="t-meta">Material-change intelligence engine</span>
+            </a>
+            <a href="who_it_is_for.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Who it is for</span>
+              <span class="t-meta">Roles, verticals, and where it lands</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="how_it_works.html" class="nav-link">How it works</a>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Open Control Stack
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 330px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="open_control_stack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Overview</span>
+              <span class="t-meta">The open reference stack</span>
+            </a>
+            <a href="agent_action_manifest.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Action Manifest</span>
+              <span class="t-meta">Declare what an agent may propose</span>
+            </a>
+            <a href="agent_control_plane.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Control Plane</span>
+              <span class="t-meta">Authorize and gate actions at runtime</span>
+            </a>
+            <a href="agent_replay_bundle.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Replay Bundle</span>
+              <span class="t-meta">Package a run for reconstruction</span>
+            </a>
+            <a href="agent_governance_evidence_pack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Governance Evidence Pack</span>
+              <span class="t-meta">Turn records into review material</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link nav-active" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 300px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="resources.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">All resources</span>
+              <span class="t-meta">Reading by audience</span>
+            </a>
+            <a href="blog.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Blog</span>
+              <span class="t-meta">Notes on governing enterprise AI</span>
+            </a>
+            <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">GitHub</span>
+              <span class="t-meta">Source, schemas, conformance tests</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">About
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 290px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="about.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">About Cognous</span>
+              <span class="t-meta">Company, team, and thesis</span>
+            </a>
+            <a href="founders_letter.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Founder's letter</span>
+              <span class="t-meta">Why Cognous exists</span>
+            </a>
+            <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Contact</span>
+              <span class="t-meta">info@cogno.us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu" style="display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(34,211,238,0.20); border-radius: 4px; color: #cbd5e1; cursor: pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </label>
+      <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link" style="display: inline-flex; align-items: center; gap: 7px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        GitHub
+      </a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" style="height: 34px; padding: 8px 16px; font-size: 11px; font-weight: 700; color: #ffffff; background: #715aa6; border: 1px solid #715aa6; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px;">Contact</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ── HEADER ──────────────────────────────────────────────────── -->
+<section style="padding-top: 116px; padding-bottom: 44px; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 16px;">Blog</div>
+    <h1 class="t-h1" style="margin-bottom: 16px; max-width: 640px;">Notes on governing enterprise AI.</h1>
+    <p class="t-body" style="max-width: 640px;">Writing from the Cognous team on what changes when AI stops assisting and starts acting — authority, evidence, and the architecture required to prove an action was allowed.</p>
+  </div>
+</section>
+
+<!-- ── LATEST ──────────────────────────────────────────────────── -->
+<section style="padding: 44px 0 56px; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08); border-bottom: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="t-label" style="margin-bottom: 20px;">Latest</div>
+    <a href="blog.html" class="card-hover" style="display: block; background: #0f172a; border: 1px solid rgba(34,211,238,0.18); border-radius: 8px; padding: 32px; box-shadow: 0 0 24px rgba(34,211,238,0.05);">
+      <div class="feature-grid" style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;">
+            <span class="t-mono" style="font-size: 11px; color: #22d3ee; letter-spacing: 0.06em; text-transform: uppercase;">Architecture</span>
+            <span style="color: rgba(34,211,238,0.3);">·</span>
+            <span class="t-meta">July 21, 2026</span>
+            <span style="color: rgba(34,211,238,0.3);">·</span>
+            <span class="t-meta">9 min read</span>
+          </div>
+          <h2 class="t-h2" style="margin-bottom: 12px;">Why agent governance belongs in a control plane, not a log</h2>
+          <p class="t-body" style="margin-bottom: 20px;">Logging describes what an agent did. Observability describes how the system behaved. Neither answers whether an action was permitted before it executed. This note works through the boundary between the three, and why the decision point has to sit in the execution path rather than beside it.</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="t-sm" style="color: #cbd5e1;">Andre de Lima</span>
+            <span style="color: rgba(34,211,238,0.3);">·</span>
+            <span class="t-meta">Founder &amp; Architect</span>
+          </div>
+        </div>
+        <div style="border-left: 1px solid rgba(34,211,238,0.10); padding-left: 28px;">
+          <div class="t-label" style="margin-bottom: 12px;">In this post</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 10px;"><span class="t-mono" style="font-size: 12px; color: #22d3ee;">01</span><span class="t-sm">Where the decision point has to live</span></div>
+            <div style="display: flex; gap: 10px;"><span class="t-mono" style="font-size: 12px; color: #22d3ee;">02</span><span class="t-sm">Deterministic gating and why it matters</span></div>
+            <div style="display: flex; gap: 10px;"><span class="t-mono" style="font-size: 12px; color: #22d3ee;">03</span><span class="t-sm">Evaluation traces as first-class output</span></div>
+            <div style="display: flex; gap: 10px;"><span class="t-mono" style="font-size: 12px; color: #22d3ee;">04</span><span class="t-sm">What the control plane deliberately does not do</span></div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── ARCHIVE ─────────────────────────────────────────────────── -->
+<section style="padding: 64px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+      <h2 class="t-h2">All posts</h2>
+      <span class="t-meta">6 posts · newest first</span>
+    </div>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Replay</span><div class="t-meta" style="margin-top: 4px;">July 14, 2026</div></div>
+      <div>
+        <div class="post-title">Deterministic replay: what a bundle has to contain</div>
+        <p class="t-sm">A replay bundle is only useful if it reproduces a decision exactly. Walking through the minimum record set — proposal, policy version, evaluation trace, authority context, and outcome — and the fields removed after they proved redundant.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">7 min</span></div>
+    </a>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Schemas</span><div class="t-meta" style="margin-top: 4px;">July 2, 2026</div></div>
+      <div>
+        <div class="post-title">Versioning JSON schemas for records that outlive the code</div>
+        <p class="t-sm">Governance records get read years after they are written, often by people without the runtime that produced them. Notes on schema versioning, forward compatibility, and why every record carries its own schema reference.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">6 min</span></div>
+    </a>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Policy evaluation</span><div class="t-meta" style="margin-top: 4px;">June 23, 2026</div></div>
+      <div>
+        <div class="post-title">Blocked actions are the most valuable records you keep</div>
+        <p class="t-sm">Most systems record what happened. The refusals — what an agent proposed and was not permitted to do — carry more governance signal than the successes, and they are the hardest records to reconstruct after the fact.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">5 min</span></div>
+    </a>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Evidence</span><div class="t-meta" style="margin-top: 4px;">June 9, 2026</div></div>
+      <div>
+        <div class="post-title">Redaction without breaking verifiability</div>
+        <p class="t-sm">Evidence packs frequently leave the boundary they were produced in. How field-level redaction interacts with signing, and the approach taken so a redacted bundle can still be verified against its original.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">8 min</span></div>
+    </a>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Architecture</span><div class="t-meta" style="margin-top: 4px;">May 28, 2026</div></div>
+      <div>
+        <div class="post-title">Four primitives: how the Open Control Stack composes</div>
+        <p class="t-sm">Manifest, control plane, replay bundle, evidence pack. Why these are separate record types with defined inputs and outputs rather than one monolithic governance object, and what each layer is responsible for.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">10 min</span></div>
+    </a>
+
+    <a href="blog.html" class="post-row">
+      <div><span class="t-mono" style="font-size: 12px; color: #22d3ee;">Release notes</span><div class="t-meta" style="margin-top: 4px;">May 12, 2026</div></div>
+      <div>
+        <div class="post-title">0.1.0 preview: reference implementation is public</div>
+        <p class="t-sm">The first public preview of the reference implementation — schemas, a filesystem adapter, deterministic policy gating, and a CLI. What is included, what is explicitly out of scope, and how to run the examples.</p>
+      </div>
+      <div class="post-read" style="text-align: right;"><span class="t-meta">4 min</span></div>
+    </a>
+
+    <p class="t-meta" style="margin-top: 24px;">Posts are published alongside specification changes. Individual post pages are not yet live.</p>
+  </div>
+</section>
+
+<!-- ── FOLLOW ──────────────────────────────────────────────────── -->
+<section style="padding: 64px 0; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">More from Cognous</div>
+    <h2 class="t-h2" style="margin-bottom: 12px; max-width: 560px;">Where the writing comes from.</h2>
+    <p class="t-body" style="margin-bottom: 32px; max-width: 620px;">Posts explain the reasoning behind the work. The open reference implementations carry the record.</p>
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <a href="https://github.com/cogno-us/cognous-agent-control-plane" target="_blank" rel="noopener" class="cta-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#22d3ee" style="flex-shrink:0; margin-top:2px;" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        <div><div class="t-h3" style="margin-bottom: 3px;">Repository</div><p class="t-sm">Source, schemas, examples, and open issues.</p></div>
+      </a>
+      <a href="open_control_stack.html" class="cta-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <div><div class="t-h3" style="margin-bottom: 3px;">Stack overview</div><p class="t-sm">How the four primitives compose.</p></div>
+      </a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="cta-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+        <div><div class="t-h3" style="margin-bottom: 3px;">Contact</div><p class="t-sm">Questions on adoption or the specification.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="padding: 56px 0 32px; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="grid-4" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+      <div style="max-width: 340px;">
+        <svg height="22" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block; margin-bottom: 14px;">
+          <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+          <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+          <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+          <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+          <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+        </svg>
+        <p class="t-sm">Cognous is Enterprise AI Optimization Infrastructure — the execution layer that makes enterprise AI economically sustainable, operationally reliable, and governable at scale.</p>
+        <p class="t-meta" style="margin-top: 12px;">Seattle, Washington · cogno.us</p>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Platform</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="platform.html" class="nav-link">Cognous Platform</a>
+          <a href="iss.html" class="nav-link">ISS substrate</a>
+          <a href="navalia.html" class="nav-link">Navalia</a>
+          <a href="how_it_works.html" class="nav-link">How it works</a>
+          <a href="who_it_is_for.html" class="nav-link">Who it is for</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Open Control Stack</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="open_control_stack.html" class="nav-link">Overview</a>
+          <a href="agent_action_manifest.html" class="nav-link">Agent Action Manifest</a>
+          <a href="agent_control_plane.html" class="nav-link">Agent Control Plane</a>
+          <a href="agent_replay_bundle.html" class="nav-link">Agent Replay Bundle</a>
+          <a href="agent_governance_evidence_pack.html" class="nav-link">Agent Governance Evidence Pack</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="about.html" class="nav-link">About Cognous</a>
+          <a href="founders_letter.html" class="nav-link">Founder's letter</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+          <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 22px; border-top: 1px solid rgba(34,211,238,0.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <span class="t-meta">© 2026 Cognous · Seattle, WA</span>
+      <span class="t-meta">Open Control Stack is Apache-2.0 · Not ODES and does not define ODES conformance</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const init = () => { if (window.lucide) window.lucide.createIcons(); };
+    if (window.lucide) { init(); }
+    else {
+      const t = setInterval(() => { if (window.lucide) { init(); clearInterval(t); } }, 80);
+      setTimeout(() => clearInterval(t), 5000);
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder's letter | Cognous</title>
+  <meta name="description" content="Why Cognous exists: the architecture comes first. A letter from founder André de Lima.">
+  <meta property="og:title" content="Founder's letter | Cognous">
+  <meta property="og:description" content="Why Cognous exists: the architecture comes first. A letter from founder André de Lima.">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/styles.css">
+  <script src="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0f172a; font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+    p { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { color: #22d3ee; }
+    .t-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #22d3ee; }
+    .t-h1  { font-size: 60px; font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h2  { font-size: 34px; font-weight: 500; line-height: 1.14; letter-spacing: -0.01em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h3  { font-size: 15px; font-weight: 700; line-height: 1.3; color: #e2e8f0; }
+    .t-body { font-size: 15px; line-height: 1.7; color: #94a3b8; }
+    .t-lead { font-size: 18px; line-height: 1.6; color: #cbd5e1; }
+    .t-sm  { font-size: 13px; line-height: 1.6; color: #94a3b8; }
+    .t-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+    .t-meta  { font-size: 12px; color: #64748b; }
+    .btn-primary { background: #0ea5e9; color: #0f172a; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 22px; height: 42px; transition: background 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-primary:hover { background: #38bdf8; color: #0f172a; }
+    .btn-secondary { color: #22d3ee; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 18px; height: 42px; transition: background 0.15s, border-color 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-secondary:hover { background: rgba(34,211,238,0.15); border-color: rgba(34,211,238,0.45); color: #22d3ee; }
+    .nav-link { font-size: 13px; color: #94a3b8; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover { color: #e2e8f0; }
+    .nav-active { color: #22d3ee !important; }
+    .nav-drop { position: relative; }
+    .nav-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 14px; }
+    .nav-drop:hover .nav-menu, .nav-drop:focus-within .nav-menu { display: block; }
+    .card-hover { transition: background 0.15s, border-color 0.15s; }
+    a.card-hover:hover { background: #334155 !important; border-color: rgba(34,211,238,0.28) !important; color: inherit; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .tab-btn { font-family: 'Public Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; border: 0; background: transparent; padding: 14px 20px; transition: color 0.15s, border-color 0.15s; }
+    @media (max-width: 1080px) { .nav-items { display: none !important; } }
+    @media (max-width: 960px) { .lifecycle { flex-direction: column !important; } .lifecycle-arrow { transform: rotate(90deg); } .tab-panel { grid-template-columns: 1fr !important; } }
+    @media (max-width: 768px) {
+      .section-wrap { padding: 0 24px !important; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+      .t-h1 { font-size: 38px !important; }
+      .t-h2 { font-size: 26px !important; }
+      .stack-band { grid-template-columns: 1fr !important; }
+    }
+  
+    @media (max-width: 1080px) {
+      .nav-burger { display: flex !important; }
+      #nav-toggle:checked ~ .nav-items { display: flex !important; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; background: #131f30; border-bottom: 1px solid rgba(34,211,238,0.16); box-shadow: 0 16px 40px rgba(0,0,0,0.55); padding: 8px 24px 20px; max-height: calc(100vh - 70px); overflow-y: auto; }
+      #nav-toggle:checked ~ .nav-items > a { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-drop { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-menu { display: block; position: static; padding-top: 6px; }
+      #nav-toggle:checked ~ .nav-items .nav-menu > div { width: 100% !important; box-shadow: none !important; background: transparent !important; border: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</helmet>
+
+<div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: linear-gradient(90deg, #0ea5e9 0%, #22d3ee 55%, transparent 100%);"></div>
+
+<nav style="position: fixed; top: 2px; left: 0; right: 0; z-index: 100; height: 62px; background: rgba(15,23,42,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(34,211,238,0.10);">
+  <div style="height: 100%; display: flex; align-items: center; padding: 0 32px; gap: 28px; justify-content: space-between; max-width: 1400px; margin: 0 auto;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+      <svg height="18" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block;">
+        <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+        <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+        <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+        <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+        <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" style="display: none;" aria-hidden="true">
+    <div class="nav-items" style="display: flex; align-items: center; gap: 26px; flex: 1;">
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Platform
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 350px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="platform.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Cognous Platform</span>
+              <span class="t-meta">The execution and governance layer</span>
+            </a>
+            <a href="iss.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">ISS substrate</span>
+              <span class="t-meta">Governed reasoning beneath any model</span>
+            </a>
+            <a href="navalia.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Navalia</span>
+              <span class="t-meta">Material-change intelligence engine</span>
+            </a>
+            <a href="who_it_is_for.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Who it is for</span>
+              <span class="t-meta">Roles, verticals, and where it lands</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="how_it_works.html" class="nav-link">How it works</a>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Open Control Stack
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 330px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="open_control_stack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Overview</span>
+              <span class="t-meta">The open reference stack</span>
+            </a>
+            <a href="agent_action_manifest.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Action Manifest</span>
+              <span class="t-meta">Declare what an agent may propose</span>
+            </a>
+            <a href="agent_control_plane.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Control Plane</span>
+              <span class="t-meta">Authorize and gate actions at runtime</span>
+            </a>
+            <a href="agent_replay_bundle.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Replay Bundle</span>
+              <span class="t-meta">Package a run for reconstruction</span>
+            </a>
+            <a href="agent_governance_evidence_pack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Governance Evidence Pack</span>
+              <span class="t-meta">Turn records into review material</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 300px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="resources.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">All resources</span>
+              <span class="t-meta">Reading by audience</span>
+            </a>
+            <a href="blog.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Blog</span>
+              <span class="t-meta">Notes on governing enterprise AI</span>
+            </a>
+            <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">GitHub</span>
+              <span class="t-meta">Source, schemas, conformance tests</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link nav-active" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">About
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 290px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="about.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">About Cognous</span>
+              <span class="t-meta">Company, team, and thesis</span>
+            </a>
+            <a href="founders_letter.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Founder's letter</span>
+              <span class="t-meta">Why Cognous exists</span>
+            </a>
+            <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Contact</span>
+              <span class="t-meta">info@cogno.us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu" style="display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(34,211,238,0.20); border-radius: 4px; color: #cbd5e1; cursor: pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </label>
+      <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link" style="display: inline-flex; align-items: center; gap: 7px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        GitHub
+      </a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" style="height: 34px; padding: 8px 16px; font-size: 11px; font-weight: 700; color: #ffffff; background: #715aa6; border: 1px solid #715aa6; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px;">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding: 128px 0 40px; background: #0f172a;">
+  <div class="section-wrap" style="max-width: 900px;">
+    <div class="t-eyebrow" style="margin-bottom: 16px;">Founder's letter</div>
+    <h1 class="t-h1" style="font-size: 48px; margin-bottom: 18px; max-width: 760px;">The architecture comes first.</h1>
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <span class="t-meta">André de Lima · Founder, Cognous</span>
+      <span class="t-meta">·</span>
+      <span class="t-meta">Seattle, Washington</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 20px 0 84px; background: #0f172a;">
+  <div class="section-wrap" style="max-width: 900px;">
+    <div style="max-width: 760px; border-top: 1px solid rgba(34,211,238,0.12); padding-top: 40px;">
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">Cognous was created to solve a problem that has existed for decades but has never been addressed with the seriousness it requires: the world is building intelligence without architecture, governance, or continuity. We are accelerating capability without structure, deploying systems without identity, and scaling complexity without the substrates that make coherence possible. This is not a technical gap. It is a civilizational one.</p>
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">I founded Cognous because certain structures must exist before the next century can function. Identity systems that are durable and sovereign. Governance systems that are transparent and adaptive. Knowledge systems that preserve lineage and meaning. Cognitive systems that are governed, interpretable, and aligned with human agency. These are not optional components of the future. They are prerequisites.</p>
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">Cognous operates on a simple principle: the architecture comes first. We do not chase trends, markets, or narratives. We build the substrate that makes intelligence safe, legible, and interoperable across institutions, cultures, and time. Our work spans four surfaces — identity, governance, infrastructure, and AI cognition — because no single layer can stand without the others. A system is only as coherent as the structure that binds it.</p>
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">This institution is not a startup in the conventional sense. It is a long-horizon builder of foundational systems. We design primitives, invariants, and protocols that will outlast any single product cycle. We treat constraints as architectural inputs, not obstacles. We prioritize clarity over speed, coherence over spectacle, and necessity over reward. As we say internally: <em style="color: #e2e8f0;">actus ipse iustificat</em> — the act justifies itself.</p>
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">Cognous is built for people who understand that the future is not something to predict, but something to architect. People who see intelligence not as a commodity, but as a governed system. People who believe that the structures we build today will determine the agency we preserve tomorrow.</p>
+      <p style="font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.62; color: #cbd5e1; margin-bottom: 26px; text-wrap: pretty;">If you are one of those people — if you think in systems, build with intention, and operate with long-term responsibility — then you will find a home here. The work ahead is difficult, but it is necessary. And necessity is the only metric that matters.</p>
+      <div style="border-top: 1px solid rgba(34,211,238,0.12); padding-top: 26px; margin-top: 14px;">
+        <div style="font-family: 'Newsreader', serif; font-size: 22px; color: #e2e8f0; margin-bottom: 4px;">— André de Lima</div>
+        <span class="t-meta">Founder, Cognous</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 72px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <a href="about.html" class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block;">
+        <div class="t-label" style="margin-bottom: 10px;">Company</div>
+        <div class="t-h3" style="margin-bottom: 6px;">About Cognous</div>
+        <p class="t-sm">The thesis, the team, and what exists today.</p>
+      </a>
+      <a href="how_it_works.html" class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block;">
+        <div class="t-label" style="margin-bottom: 10px;">Platform</div>
+        <div class="t-h3" style="margin-bottom: 6px;">How it works</div>
+        <p class="t-sm">Optimization inside the computation path.</p>
+      </a>
+      <a href="resources.html" class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block;">
+        <div class="t-label" style="margin-bottom: 10px;">Reading</div>
+        <div class="t-h3" style="margin-bottom: 6px;">Resources</div>
+        <p class="t-sm">Briefings, specifications, and source.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer style="padding: 56px 0 32px; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="grid-4" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+      <div style="max-width: 340px;">
+        <svg height="22" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block; margin-bottom: 14px;">
+          <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+          <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+          <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+          <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+          <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+        </svg>
+        <p class="t-sm">Cognous is Enterprise AI Optimization Infrastructure — the execution layer that makes enterprise AI economically sustainable, operationally reliable, and governable at scale.</p>
+        <p class="t-meta" style="margin-top: 12px;">Seattle, Washington · cogno.us</p>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Platform</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="platform.html" class="nav-link">Cognous Platform</a>
+          <a href="iss.html" class="nav-link">ISS substrate</a>
+          <a href="navalia.html" class="nav-link">Navalia</a>
+          <a href="how_it_works.html" class="nav-link">How it works</a>
+          <a href="who_it_is_for.html" class="nav-link">Who it is for</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Open Control Stack</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="open_control_stack.html" class="nav-link">Overview</a>
+          <a href="agent_action_manifest.html" class="nav-link">Agent Action Manifest</a>
+          <a href="agent_control_plane.html" class="nav-link">Agent Control Plane</a>
+          <a href="agent_replay_bundle.html" class="nav-link">Agent Replay Bundle</a>
+          <a href="agent_governance_evidence_pack.html" class="nav-link">Agent Governance Evidence Pack</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="about.html" class="nav-link">About Cognous</a>
+          <a href="founders_letter.html" class="nav-link">Founder's letter</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+          <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 22px; border-top: 1px solid rgba(34,211,238,0.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <span class="t-meta">© 2026 Cognous · Seattle, WA</span>
+      <span class="t-meta">Open Control Stack is Apache-2.0 · Not ODES and does not define ODES conformance</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const init = () => { if (window.lucide) window.lucide.createIcons(); };
+    if (window.lucide) init();
+    else {
+      const t = setInterval(() => { if (window.lucide) { init(); clearInterval(t); } }, 80);
+      setTimeout(() => clearInterval(t), 5000);
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

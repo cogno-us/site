@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #0b1220; }
+  .opt-wrap { display: flex; flex-wrap: wrap; gap: 28px; padding: 40px; align-items: flex-start; }
+  .panel { width: 620px; background: #0f172a; border: 1px solid rgba(34,211,238,0.14); border-radius: 14px; overflow: hidden; }
+  .panel-tag { display: flex; align-items: baseline; gap: 12px; padding: 16px 30px; background: rgba(34,211,238,0.06); border-bottom: 1px solid rgba(34,211,238,0.10); }
+  .panel-body { padding: 36px 30px 40px; }
+  .num { color: #22d3ee; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; }
+  .pairing { color: #64748b; font-size: 13px; }
+</style>
+</helmet>
+
+<div class="opt-wrap">
+
+  <!-- OPTION A: Space Grotesk + IBM Plex Sans -->
+  <div class="panel" id="1a">
+    <div class="panel-tag"><span class="num">OPTION 1A</span><span class="pairing" style="font-family: 'IBM Plex Mono', monospace;">Space Grotesk · IBM Plex Sans · Plex Mono labels</span></div>
+    <div class="panel-body">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #22d3ee; margin-bottom: 18px;">Open Control Stack</div>
+      <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; color: #e2e8f0; margin: 0 0 18px;">Open-source reference infrastructure for governable AI agents.</h1>
+      <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; margin: 0 0 24px;">A public reference architecture for declaring what agents may do, controlling what they propose at runtime, and translating records into governance evidence.</p>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 26px;">
+        <span style="font-family: 'IBM Plex Sans', sans-serif; background: #0ea5e9; color: #0f172a; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 11px 20px;">Explore the stack</span>
+        <span style="font-family: 'IBM Plex Sans', sans-serif; color: #22d3ee; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">View stack hub</span>
+      </div>
+      <div style="background: #1e293b; border: 1px solid rgba(34,211,238,0.14); border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; color: #22d3ee;">1</span>
+        <div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #22d3ee; margin-bottom: 3px;">Declare</div><div style="font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #e2e8f0;">Agent Action Manifest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: Newsreader + Public Sans -->
+  <div class="panel" id="1b">
+    <div class="panel-tag"><span class="num">OPTION 1B</span><span class="pairing" style="font-family: 'Public Sans', sans-serif;">Newsreader · Public Sans &nbsp;— editorial + gov-grade</span></div>
+    <div class="panel-body">
+      <div style="font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #22d3ee; margin-bottom: 18px;">Open Control Stack</div>
+      <h1 style="font-family: 'Newsreader', serif; font-size: 44px; font-weight: 500; line-height: 1.06; letter-spacing: -0.01em; color: #e2e8f0; margin: 0 0 18px;">Open-source reference infrastructure for governable AI agents.</h1>
+      <p style="font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; margin: 0 0 24px;">A public reference architecture for declaring what agents may do, controlling what they propose at runtime, and translating records into governance evidence.</p>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 26px;">
+        <span style="font-family: 'Public Sans', sans-serif; background: #0ea5e9; color: #0f172a; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 11px 20px;">Explore the stack</span>
+        <span style="font-family: 'Public Sans', sans-serif; color: #22d3ee; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">View stack hub</span>
+      </div>
+      <div style="background: #1e293b; border: 1px solid rgba(34,211,238,0.14); border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 24px; color: #22d3ee;">1</span>
+        <div><div style="font-family: 'Public Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; margin-bottom: 3px;">Declare</div><div style="font-family: 'Public Sans', sans-serif; font-size: 14px; font-weight: 700; color: #e2e8f0;">Agent Action Manifest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C: IBM Plex Sans + IBM Plex Mono -->
+  <div class="panel" id="1c">
+    <div class="panel-tag"><span class="num">OPTION 1C</span><span class="pairing" style="font-family: 'IBM Plex Mono', monospace;">IBM Plex Sans · IBM Plex Mono &nbsp;— all-technical</span></div>
+    <div class="panel-body">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #22d3ee; margin-bottom: 18px;">Open Control Stack</div>
+      <h1 style="font-family: 'IBM Plex Sans', sans-serif; font-size: 40px; font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; color: #e2e8f0; margin: 0 0 18px;">Open-source reference infrastructure for governable AI agents.</h1>
+      <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; margin: 0 0 24px;">A public reference architecture for declaring what agents may do, controlling what they propose at runtime, and translating records into governance evidence.</p>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 26px;">
+        <span style="font-family: 'IBM Plex Sans', sans-serif; background: #0ea5e9; color: #0f172a; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 11px 20px;">Explore the stack</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; color: #22d3ee; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">View stack hub</span>
+      </div>
+      <div style="background: #1e293b; border: 1px solid rgba(34,211,238,0.14); border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 500; color: #22d3ee;">1</span>
+        <div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; margin-bottom: 3px;">Declare</div><div style="font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #e2e8f0;">Agent Action Manifest</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION D: Archivo + Libre Franklin -->
+  <div class="panel" id="1d">
+    <div class="panel-tag"><span class="num">OPTION 1D</span><span class="pairing" style="font-family: 'Libre Franklin', sans-serif;">Archivo · Libre Franklin &nbsp;— strong grotesque</span></div>
+    <div class="panel-body">
+      <div style="font-family: 'Libre Franklin', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #22d3ee; margin-bottom: 18px;">Open Control Stack</div>
+      <h1 style="font-family: 'Archivo', sans-serif; font-size: 40px; font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; color: #e2e8f0; margin: 0 0 18px;">Open-source reference infrastructure for governable AI agents.</h1>
+      <p style="font-family: 'Libre Franklin', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; margin: 0 0 24px;">A public reference architecture for declaring what agents may do, controlling what they propose at runtime, and translating records into governance evidence.</p>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 26px;">
+        <span style="font-family: 'Libre Franklin', sans-serif; background: #0ea5e9; color: #0f172a; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; padding: 11px 20px;">Explore the stack</span>
+        <span style="font-family: 'Libre Franklin', sans-serif; color: #22d3ee; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">View stack hub</span>
+      </div>
+      <div style="background: #1e293b; border: 1px solid rgba(34,211,238,0.14); border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 22px; font-weight: 700; color: #22d3ee;">1</span>
+        <div><div style="font-family: 'Libre Franklin', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; margin-bottom: 3px;">Declare</div><div style="font-family: 'Libre Franklin', sans-serif; font-size: 14px; font-weight: 600; color: #e2e8f0;">Agent Action Manifest</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

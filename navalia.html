@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navalia | Material-change intelligence engine | Cognous</title>
+  <meta name="description" content="Navalia detects, verifies, clusters, and publishes material change as evidence-linked canonical nodes — intelligence infrastructure, not news.">
+  <meta property="og:title" content="Navalia | Material-change intelligence engine | Cognous">
+  <meta property="og:description" content="Navalia detects, verifies, clusters, and publishes material change as evidence-linked canonical nodes — intelligence infrastructure, not news.">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/styles.css">
+  <script src="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0f172a; font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+    p { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    a:hover { color: #22d3ee; }
+    .t-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #22d3ee; }
+    .t-h1  { font-size: 60px; font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h2  { font-size: 34px; font-weight: 500; line-height: 1.14; letter-spacing: -0.01em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h3  { font-size: 15px; font-weight: 700; line-height: 1.3; color: #e2e8f0; }
+    .t-body { font-size: 15px; line-height: 1.7; color: #94a3b8; }
+    .t-lead { font-size: 18px; line-height: 1.6; color: #cbd5e1; }
+    .t-sm  { font-size: 13px; line-height: 1.6; color: #94a3b8; }
+    .t-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+    .t-meta  { font-size: 12px; color: #64748b; }
+    .btn-primary { background: #0ea5e9; color: #0f172a; display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 22px; height: 42px; transition: background 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-primary:hover { background: #38bdf8; color: #0f172a; }
+    .btn-secondary { color: #22d3ee; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 18px; height: 42px; transition: background 0.15s, border-color 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-secondary:hover { background: rgba(34,211,238,0.15); border-color: rgba(34,211,238,0.45); color: #22d3ee; }
+    .nav-link { font-size: 13px; color: #94a3b8; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover { color: #e2e8f0; }
+    .nav-active { color: #22d3ee !important; }
+    .nav-drop { position: relative; }
+    .nav-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 14px; }
+    .nav-drop:hover .nav-menu, .nav-drop:focus-within .nav-menu { display: block; }
+    .card-hover { transition: background 0.15s, border-color 0.15s; }
+    a.card-hover:hover { background: #334155 !important; border-color: rgba(34,211,238,0.28) !important; color: inherit; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .tab-btn { font-family: 'Public Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; border: 0; background: transparent; padding: 14px 20px; transition: color 0.15s, border-color 0.15s; }
+    @media (max-width: 1080px) { .nav-items { display: none !important; } }
+    @media (max-width: 960px) { .lifecycle { flex-direction: column !important; } .lifecycle-arrow { transform: rotate(90deg); } .tab-panel { grid-template-columns: 1fr !important; } }
+    @media (max-width: 768px) {
+      .section-wrap { padding: 0 24px !important; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+      .t-h1 { font-size: 38px !important; }
+      .t-h2 { font-size: 26px !important; }
+      .stack-band { grid-template-columns: 1fr !important; }
+    }
+  
+    @media (max-width: 1080px) {
+      .nav-burger { display: flex !important; }
+      #nav-toggle:checked ~ .nav-items { display: flex !important; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; background: #131f30; border-bottom: 1px solid rgba(34,211,238,0.16); box-shadow: 0 16px 40px rgba(0,0,0,0.55); padding: 8px 24px 20px; max-height: calc(100vh - 70px); overflow-y: auto; }
+      #nav-toggle:checked ~ .nav-items > a { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-drop { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-menu { display: block; position: static; padding-top: 6px; }
+      #nav-toggle:checked ~ .nav-items .nav-menu > div { width: 100% !important; box-shadow: none !important; background: transparent !important; border: 0 !important; padding: 0 !important; }
+    }
+
+    .rule { width: 46px; height: 2px; background: linear-gradient(90deg, #ED7D31, #22d3ee); margin-bottom: 18px; }
+    .lift { transition: transform 0.15s ease, background 0.15s, border-color 0.15s, box-shadow 0.15s; }
+    .lift:hover { transform: translateY(-3px); border-color: rgba(34,211,238,0.30) !important; box-shadow: 0 14px 34px rgba(0,0,0,0.45), 0 0 22px rgba(34,211,238,0.10); }
+    .ghost { font-family: 'Newsreader', serif; font-size: 50px; line-height: 1; color: rgba(226,232,240,0.09); position: absolute; top: 14px; right: 20px; pointer-events: none; }
+    .t-serif { font-family: 'Newsreader', serif; font-weight: 500; letter-spacing: -0.01em; color: #e2e8f0; }
+    .ledger { display: grid; grid-template-columns: 52px 200px 1fr; gap: 20px; align-items: baseline; padding: 17px 20px; border-bottom: 1px solid rgba(34,211,238,0.08); transition: background 0.15s; }
+    .ledger:last-child { border-bottom: 0; }
+    .ledger:hover { background: rgba(34,211,238,0.05); }
+    .ledger:hover .ledger-i { color: #ED7D31; }
+    .ledger-i { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #64748b; transition: color 0.15s; }
+    .divcols { display: grid; }
+    .divcols > * + * { border-left: 1px solid rgba(34,211,238,0.10); }
+    .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+    .spine { position: relative; }
+    .spine::before { content: ''; position: absolute; left: 17px; top: 26px; bottom: 26px; width: 1px; background: linear-gradient(180deg, rgba(34,211,238,0.35), rgba(34,211,238,0.10)); }
+    .node { width: 34px; height: 34px; border-radius: 50%; background: #0f172a; border: 1px solid rgba(34,211,238,0.30); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #22d3ee; flex-shrink: 0; }
+    @media (max-width: 900px) { .divcols { grid-template-columns: 1fr !important; } .divcols > * + * { border-left: 0 !important; border-top: 1px solid rgba(34,211,238,0.10); } .bento > * { grid-column: span 12 !important; } }
+    @media (max-width: 768px) { .ledger { grid-template-columns: 40px 1fr !important; } .ledger-b { grid-column: 2; } .ghost { font-size: 38px; } .spine::before { display: none; } }
+  </style>
+</helmet>
+
+<div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: linear-gradient(90deg, #0ea5e9 0%, #22d3ee 55%, transparent 100%);"></div>
+
+<nav style="position: fixed; top: 2px; left: 0; right: 0; z-index: 100; height: 62px; background: rgba(15,23,42,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(34,211,238,0.10);">
+  <div style="height: 100%; display: flex; align-items: center; padding: 0 32px; gap: 28px; justify-content: space-between; max-width: 1400px; margin: 0 auto;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+      <svg height="18" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block;">
+        <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+        <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+        <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+        <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+        <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" style="display: none;" aria-hidden="true">
+    <div class="nav-items" style="display: flex; align-items: center; gap: 26px; flex: 1;">
+      <div class="nav-drop">
+        <span class="nav-link nav-active" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Platform
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 350px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="platform.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Cognous Platform</span>
+              <span class="t-meta">The execution and governance layer</span>
+            </a>
+            <a href="iss.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">ISS substrate</span>
+              <span class="t-meta">Governed reasoning beneath any model</span>
+            </a>
+            <a href="navalia.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Navalia</span>
+              <span class="t-meta">Material-change intelligence engine</span>
+            </a>
+            <a href="who_it_is_for.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Who it is for</span>
+              <span class="t-meta">Roles, verticals, and where it lands</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="how_it_works.html" class="nav-link">How it works</a>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Open Control Stack
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 330px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="open_control_stack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Overview</span>
+              <span class="t-meta">The open reference stack</span>
+            </a>
+            <a href="agent_action_manifest.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Action Manifest</span>
+              <span class="t-meta">Declare what an agent may propose</span>
+            </a>
+            <a href="agent_control_plane.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Control Plane</span>
+              <span class="t-meta">Authorize and gate actions at runtime</span>
+            </a>
+            <a href="agent_replay_bundle.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Replay Bundle</span>
+              <span class="t-meta">Package a run for reconstruction</span>
+            </a>
+            <a href="agent_governance_evidence_pack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Governance Evidence Pack</span>
+              <span class="t-meta">Turn records into review material</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 300px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="resources.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">All resources</span>
+              <span class="t-meta">Reading by audience</span>
+            </a>
+            <a href="blog.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Blog</span>
+              <span class="t-meta">Notes on governing enterprise AI</span>
+            </a>
+            <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">GitHub</span>
+              <span class="t-meta">Source, schemas, conformance tests</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">About
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 290px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="about.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">About Cognous</span>
+              <span class="t-meta">Company, team, and thesis</span>
+            </a>
+            <a href="founders_letter.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Founder's letter</span>
+              <span class="t-meta">Why Cognous exists</span>
+            </a>
+            <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Contact</span>
+              <span class="t-meta">info@cogno.us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu" style="display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(34,211,238,0.20); border-radius: 4px; color: #cbd5e1; cursor: pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </label>
+      <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link" style="display: inline-flex; align-items: center; gap: 7px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        GitHub
+      </a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" style="height: 34px; padding: 8px 16px; font-size: 11px; font-weight: 700; color: #ffffff; background: #715aa6; border: 1px solid #715aa6; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px;">Contact</a>
+    </div>
+  </div>
+</nav>
+<section style="padding: 132px 0 68px; background: radial-gradient(900px 400px at 12% -5%, rgba(34,211,238,0.12), transparent 62%), radial-gradient(rgba(34,211,238,0.06) 1px, transparent 1px) 0 0 / 26px 26px, #0f172a;">
+  <div class="section-wrap">
+    <div style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(34,211,238,0.20); background: rgba(34,211,238,0.06); border-radius: 999px; padding: 6px 16px; margin-bottom: 26px;">
+      <span style="width: 6px; height: 6px; border-radius: 50%; background: #22d3ee;"></span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #cbd5e1;">Navalia &middot; Material-change intelligence &middot; Working software</span>
+    </div>
+    <h1 class="t-h1" style="max-width: 900px; margin-bottom: 20px;">What materially changed &mdash; and how do we know it is true?</h1>
+    <p class="t-lead" style="max-width: 720px; margin-bottom: 30px; text-wrap: pretty;">Navalia is a material-change intelligence engine. It detects verifiable change in the world, filters non-material noise before inference, evaluates claims through a procedural trust chain, clusters overlapping evidence into canonical nodes, and publishes a structured daily map of what actually changed.</p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 44px;">
+      <a href="platform.html" class="btn-primary" style="height: 46px; padding: 13px 26px; font-size: 13px;">The platform</a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="btn-secondary" style="height: 46px; padding: 13px 22px; font-size: 13px;">Request a walkthrough</a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid rgba(34,211,238,0.12);">
+      <div style="padding: 18px 34px 0 0; margin-right: 34px; min-width: 150px;">
+        <div class="t-serif" style="font-size: 26px; color: #ED7D31;">8 operations</div>
+        <div class="t-meta" style="margin-top: 2px;">signal to canonical node</div>
+      </div>
+      <div style="padding: 18px 34px 0 0; margin-right: 34px; min-width: 150px;">
+        <div class="t-serif" style="font-size: 26px; color: #ED7D31;">Filter first</div>
+        <div class="t-meta" style="margin-top: 2px;">razors run before inference</div>
+      </div>
+      <div style="padding: 18px 34px 0 0; margin-right: 34px; min-width: 150px;">
+        <div class="t-serif" style="font-size: 26px; color: #ED7D31;">Daily</div>
+        <div class="t-meta" style="margin-top: 2px;">structured intelligence map</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="rule"></div>
+    <div class="t-eyebrow" style="margin-bottom: 14px;">What it is</div>
+    <h2 class="t-h2" style="margin-bottom: 14px; max-width: 640px;">Eight operations, in order.</h2>
+    <p class="t-body" style="margin-bottom: 36px; max-width: 720px;">A material change is an event that significantly alters circumstances, policies, or perceptions. Navalia is the system that finds those events and establishes whether they hold.</p>
+    <div class="divcols" style="grid-template-columns: 1fr 1fr; background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; overflow: hidden;">
+      <div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">01</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Detects</div>
+            <p class="t-sm">Verifiable changes in the real world, from wires, agencies, briefings, and primary filings.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">02</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Filters</div>
+            <p class="t-sm">All non-material noise &mdash; removed by deterministic razors before any model sees it.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">03</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Normalizes</div>
+            <p class="t-sm">Heterogeneous inputs into a single unified schema.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">04</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Evaluates</div>
+            <p class="t-sm">Claims through a procedural trust chain rather than a source-reputation score.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">05</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Clusters</div>
+            <p class="t-sm">Overlapping evidence into canonical nodes, collapsing duplication.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">06</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Scores</div>
+            <p class="t-sm">Importance from primary-source density and consensus.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">07</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Synthesizes</div>
+            <p class="t-sm">Context, timelines, and the actors involved.</p>
+          </div>
+        </div>
+        <div class="ledger" style="grid-template-columns: 44px 1fr;">
+          <span class="ledger-i">08</span>
+          <div class="ledger-b">
+            <div class="t-serif" style="font-size: 20px; margin-bottom: 4px;">Publishes</div>
+            <p class="t-sm">A daily, structured map of what actually changed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="border-left: 2px solid #ED7D31; padding: 4px 0 4px 24px; max-width: 720px; margin-top: 34px;">
+      <p style="font-family: 'Newsreader', serif; font-size: 23px; line-height: 1.4; color: #e2e8f0;">This is not news, summarization, search, research automation, or feeds. It is intelligence infrastructure for the civilian world.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="rule"></div>
+    <div class="t-eyebrow" style="margin-bottom: 14px;">Why it is a new category</div>
+    <h2 class="t-h2" style="margin-bottom: 32px; max-width: 660px;">Every existing category optimizes for something Navalia rejects.</h2>    <div style="border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; background: #1e293b; overflow: hidden;">
+      <div style="height: 2px; background: linear-gradient(90deg, #ED7D31, #22d3ee 55%, transparent);"></div>
+      <div style="overflow-x: auto;">
+        <div style="min-width: 680px;">
+          <div style="display: grid; grid-template-columns: 1fr 1.1fr 1.6fr; border-bottom: 1px solid rgba(34,211,238,0.16); background: rgba(34,211,238,0.05);">
+            <div class="t-label" style="padding: 12px 18px;">Existing category</div>
+            <div class="t-label" style="padding: 12px 18px;">Optimization target</div>
+            <div class="t-label" style="padding: 12px 18px;">Why it fails</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">News</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Engagement</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Rewards noise, speed, and outrage</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">Aggregators</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Volume</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Redundant, unverified, repetitive</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">Search</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Relevance</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Requires user intent; no synthesis</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">Research tools</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Retrieval</div>
+            <div class="t-sm" style="padding: 13px 18px; ">No trust chain, no clustering</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">LLM summaries</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Compression</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Hallucinates; no evidence model</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;">Feeds</div>
+            <div class="t-sm" style="padding: 13px 18px; ">Personalization</div>
+            <div class="t-sm" style="padding: 13px 18px; ">The opposite of structural understanding</div>
+          </div>
+          <div class="ledger" style="grid-template-columns: 1fr 1.1fr 1.6fr; gap: 0; padding: 0;">
+            <div class="t-sm" style="padding: 13px 18px; color: #e2e8f0; font-weight: 700;"><span style="color: #ED7D31;">Navalia</span></div>
+            <div class="t-sm" style="padding: 13px 18px; ">Structural understanding of material change</div>
+            <div class="t-sm" style="padding: 13px 18px; ">The target no current category addresses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="rule"></div>
+    <div class="t-eyebrow" style="margin-bottom: 14px;">The pipeline</div>
+    <h2 class="t-h2" style="margin-bottom: 14px; max-width: 660px;">Six stages from raw signal to canonical node.</h2>
+    <p class="t-body" style="margin-bottom: 36px; max-width: 720px;">Filtering happens before inference, not after. By the time a model participates, the input is deduplicated, language-checked, and heuristically cleaned.</p>    <div class="spine" style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">I</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">01</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Raw signal ingestion</div>
+          <p class="t-sm" style="max-width: 86%;">Wires, agencies, briefings, filings, and early reports enter as a deliberately chaotic, overlapping set &mdash; the real shape of the world.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">II</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">02</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Razor filters</div>
+          <p class="t-sm" style="max-width: 86%;">Deduplication, language consistency checks, and rule-based heuristics remove noise before any model is invoked.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">III</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">03</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Claim extraction</div>
+          <p class="t-sm" style="max-width: 86%;">Information is broken into atomic, neutral, evidence-linked claims, each timestamped and weighted by source reliability.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">IV</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">04</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Procedural trust chain</div>
+          <p class="t-sm" style="max-width: 86%;">Source quality, then verification, then synthesis. Trust is a procedure that can be inspected, not a score that must be believed.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">V</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">05</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Clustering</div>
+          <p class="t-sm" style="max-width: 86%;">Related claims collapse into canonical nodes representing the actual development, rather than the many reports about it.</p>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 34px 1fr; gap: 20px; align-items: start;">
+        <div class="node">VI</div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 20px 24px; position: relative; overflow: hidden;">
+          <div class="ghost" style="font-size: 40px;">06</div>
+          <div class="t-serif" style="font-size: 20px; margin-bottom: 5px;">Bioptic evaluation</div>
+          <p class="t-sm" style="max-width: 86%;">Micro-truth and macro-pattern analysis are read together to set importance and rank what genuinely matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="rule"></div>
+    <div class="t-eyebrow" style="margin-bottom: 14px;">Output</div>
+    <h2 class="t-h2" style="margin-bottom: 32px; max-width: 640px;">A daily briefing that carries its own evidence.</h2>    <div class="bento">
+      <div class="lift" style="grid-column: span 6; position: relative; overflow: hidden; background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 24px;">
+        <div class="ghost">&#9678;</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 10px; max-width: 82%;">Evidence-linked canonical nodes</div>
+        <p class="t-sm">Every node in the daily map resolves to the claims and primary sources that support it. Nothing asks to be taken on faith.</p>
+      </div>
+      <div class="lift" style="grid-column: span 6; position: relative; overflow: hidden; background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 24px;">
+        <div class="ghost">&#8801;</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 10px; max-width: 82%;">Contextual scaffolding</div>
+        <p class="t-sm" style="max-width: 100%;">Each development arrives with timeline, actors, and prior state.</p>
+      </div>
+      <div class="lift" style="grid-column: span 6; position: relative; overflow: hidden; background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 24px;">
+        <div class="ghost">&#8213;</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 10px; max-width: 82%;">Tone-neutral presentation</div>
+        <p class="t-sm" style="max-width: 100%;">No engagement framing, no urgency signalling. Neutral tone is a design constraint, not a style preference.</p>
+      </div>
+      <div class="lift" style="grid-column: span 6; position: relative; overflow: hidden; background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; padding: 24px;">
+        <div class="ghost">&#8862;</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 10px; max-width: 82%;">Structural comparability</div>
+        <p class="t-sm">Because outputs share one schema, today can be compared to yesterday &mdash; and drift in the record itself becomes visible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="grid-2" style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start;">
+      <div>
+        <div class="rule"></div>
+        <div class="t-eyebrow" style="margin-bottom: 14px;">Stress test</div>
+        <h2 class="t-h2" style="margin-bottom: 16px;">The hardest case is the first 24 hours.</h2>
+        <p class="t-body">Navalia is demonstrated against historical high-chaos events, where reporting was contradictory, sources were uneven, and the record only settled later. The point of the exercise is not retrospective judgement &mdash; it is to show how the pipeline behaves when the input is at its worst.</p>
+      </div>
+      <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px;">
+          <div class="t-label" style="margin-bottom: 14px; color: #64748b;">Without structure</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span class="t-sm">Conflicting reports propagate unchecked</span>
+            <span class="t-sm">Volume is mistaken for confirmation</span>
+            <span class="t-sm">Drift and contradiction accumulate</span>
+            <span class="t-sm">Decisions rest on unverified input</span>
+          </div>
+        </div>
+        <div class="lift" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.26); border-radius: 8px; padding: 24px; box-shadow: 0 0 18px rgba(34,211,238,0.10);">
+          <div class="t-label" style="margin-bottom: 14px;">With Navalia</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span class="t-sm" style="color: #cbd5e1;">Claims are atomic and separately verifiable</span>
+            <span class="t-sm" style="color: #cbd5e1;">Evidence density drives importance</span>
+            <span class="t-sm" style="color: #cbd5e1;">Canonical nodes replace duplicate reports</span>
+            <span class="t-sm" style="color: #cbd5e1;">Uncertainty is stated rather than smoothed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 84px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="rule"></div>
+    <div class="t-eyebrow" style="margin-bottom: 14px;">Where it runs</div>
+    <h2 class="t-h2" style="margin-bottom: 32px; max-width: 700px;">Navalia is an application of the platform, not a separate stack.</h2>
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <a href="iss.html" class="lift" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block; position: relative; overflow: hidden;">
+        <div class="ghost">01</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 8px;">On the ISS substrate</div>
+        <p class="t-sm">Continuity and constraint gating keep synthesis anchored to prior state across long analytical runs.</p>
+        <span class="t-label" style="display: block; margin-top: 16px;">ISS &rarr;</span>
+      </a>
+      <a href="platform.html" class="lift" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block; position: relative; overflow: hidden;">
+        <div class="ghost">02</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 8px;">Under the control plane</div>
+        <p class="t-sm">Authority, admissibility, and certification states govern what the engine is permitted to publish.</p>
+        <span class="t-label" style="display: block; margin-top: 16px;">Platform &rarr;</span>
+      </a>
+      <a href="open_control_stack.html" class="lift" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 24px; display: block; position: relative; overflow: hidden;">
+        <div class="ghost">03</div>
+        <div class="t-serif" style="font-size: 20px; margin-bottom: 8px;">With portable evidence</div>
+        <p class="t-sm">Runs can be packaged and evidenced using the open artifacts published in Open Control Stack.</p>
+        <span class="t-label" style="display: block; margin-top: 16px;">Open Control Stack &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 100px 0; background: radial-gradient(700px 300px at 50% 120%, rgba(237,125,49,0.10), transparent 70%), #0f172a; border-top: 1px solid rgba(34,211,238,0.10);">
+  <div class="section-wrap" style="text-align: center;">
+    <div class="rule" style="margin: 0 auto 20px;"></div>
+    <h2 class="t-h2" style="font-size: 40px; margin: 0 auto 14px; max-width: 640px;">See a day of material change, structured.</h2>
+    <p class="t-lead" style="margin: 0 auto 30px; max-width: 580px;">Navalia is working software. A walkthrough runs against real signal.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap;">
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="btn-primary" style="height: 46px; padding: 13px 26px; font-size: 13px;">Talk to Cognous</a>
+      <a href="platform.html" class="btn-secondary" style="height: 46px; padding: 13px 22px; font-size: 13px;">See the platform</a>
+    </div>
+  </div>
+</section>
+<footer style="padding: 56px 0 32px; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="grid-4" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+      <div style="max-width: 340px;">
+        <svg height="22" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block; margin-bottom: 14px;">
+          <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+          <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+          <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+          <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+          <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+        </svg>
+        <p class="t-sm">Cognous is Enterprise AI Optimization Infrastructure — the execution layer that makes enterprise AI economically sustainable, operationally reliable, and governable at scale.</p>
+        <p class="t-meta" style="margin-top: 12px;">Seattle, Washington · cogno.us</p>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Platform</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="platform.html" class="nav-link">Cognous Platform</a>
+          <a href="iss.html" class="nav-link">ISS substrate</a>
+          <a href="navalia.html" class="nav-link">Navalia</a>
+          <a href="how_it_works.html" class="nav-link">How it works</a>
+          <a href="who_it_is_for.html" class="nav-link">Who it is for</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Open Control Stack</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="open_control_stack.html" class="nav-link">Overview</a>
+          <a href="agent_action_manifest.html" class="nav-link">Agent Action Manifest</a>
+          <a href="agent_control_plane.html" class="nav-link">Agent Control Plane</a>
+          <a href="agent_replay_bundle.html" class="nav-link">Agent Replay Bundle</a>
+          <a href="agent_governance_evidence_pack.html" class="nav-link">Agent Governance Evidence Pack</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="about.html" class="nav-link">About Cognous</a>
+          <a href="founders_letter.html" class="nav-link">Founder's letter</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+          <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 22px; border-top: 1px solid rgba(34,211,238,0.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <span class="t-meta">© 2026 Cognous · Seattle, WA</span>
+      <span class="t-meta">Open Control Stack is Apache-2.0 · Not ODES and does not define ODES conformance</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const init = () => { if (window.lucide) window.lucide.createIcons(); };
+    if (window.lucide) init();
+    else {
+      const t = setInterval(() => { if (window.lucide) { init(); clearInterval(t); } }, 80);
+      setTimeout(() => clearInterval(t), 5000);
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

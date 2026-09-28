@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Replay Bundle | Portable replay records for AI-agent runs</title>
+  <meta name="description" content="Agent Replay Bundle is a public schema and validator for packaging AI-agent runs into portable replay artifacts for audit, review, redaction, signing, validation, and incident reconstruction.">
+  <meta property="og:title" content="Agent Replay Bundle">
+  <meta property="og:description" content="Portable replay records for AI-agent runs — the Replay layer of the Cognous Open Control Stack.">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/tokens/shadows.css">
+  <link rel="stylesheet" href="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/styles.css">
+  <script src="_ds/cognous-design-system-e6fe6dcb-ad72-4556-bbae-85d0604db8cb/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0f172a; font-family: 'Public Sans', sans-serif; font-size: 15px; line-height: 1.7; color: #94a3b8; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+    p { margin: 0; }
+    a { text-decoration: none; color: inherit; }
+    .t-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #22d3ee; }
+    .t-h1  { font-size: 46px; font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h2  { font-size: 28px; font-weight: 500; line-height: 1.15; color: #e2e8f0; font-family: 'Newsreader', serif; }
+    .t-h3  { font-size: 15px; font-weight: 700; line-height: 1.3; color: #e2e8f0; }
+    .t-body { font-size: 15px; line-height: 1.7; color: #94a3b8; }
+    .t-sm  { font-size: 13px; line-height: 1.6; color: #94a3b8; }
+    .t-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+    .t-meta  { font-size: 12px; color: #64748b; }
+    .t-mono { font-family: Consolas, 'SF Mono', Menlo, monospace; }
+    .btn-primary { background: #0ea5e9; color: #0f172a; display: inline-flex; align-items: center; gap: 8px; font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 22px; height: 42px; transition: background 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-primary:hover { background: #38bdf8; }
+    .btn-secondary { color: #22d3ee; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.25); display: inline-flex; align-items: center; gap: 8px; font-family: 'Public Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 10px 18px; height: 42px; transition: background 0.15s, border-color 0.15s; white-space: nowrap; cursor: pointer; }
+    .btn-secondary:hover { background: rgba(34,211,238,0.15); border-color: rgba(34,211,238,0.45); }
+    .nav-link { font-size: 13px; color: #94a3b8; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover { color: #e2e8f0; }
+    .nav-active { color: #22d3ee !important; }
+    .card-hover { transition: background 0.15s, border-color 0.15s; }
+    a.card-hover:hover { background: #334155 !important; border-color: rgba(34,211,238,0.28) !important; }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    @media (max-width: 1080px) { .nav-items { display: none !important; } }
+    @media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr !important; } .hero-visual { display: none !important; } }
+    @media (max-width: 768px) {
+      .section-wrap { padding: 0 24px !important; }
+      .grid-5, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+      .t-h1 { font-size: 36px !important; }
+    }
+  
+    .nav-drop { position: relative; }
+    .nav-menu { display: none; position: absolute; top: 100%; left: -16px; padding-top: 14px; }
+    .nav-drop:hover .nav-menu, .nav-drop:focus-within .nav-menu { display: block; }
+    a:hover { color: #22d3ee; }
+    a.card-hover:hover { color: inherit; }
+    .btn-secondary:hover { color: #22d3ee; }
+  
+    @media (max-width: 1080px) {
+      .nav-burger { display: flex !important; }
+      #nav-toggle:checked ~ .nav-items { display: flex !important; position: absolute; top: 62px; left: 0; right: 0; flex-direction: column !important; align-items: stretch !important; gap: 0 !important; background: #131f30; border-bottom: 1px solid rgba(34,211,238,0.16); box-shadow: 0 16px 40px rgba(0,0,0,0.55); padding: 8px 24px 20px; max-height: calc(100vh - 70px); overflow-y: auto; }
+      #nav-toggle:checked ~ .nav-items > a { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-drop { padding: 12px 0; border-bottom: 1px solid rgba(34,211,238,0.08); }
+      #nav-toggle:checked ~ .nav-items .nav-menu { display: block; position: static; padding-top: 6px; }
+      #nav-toggle:checked ~ .nav-items .nav-menu > div { width: 100% !important; box-shadow: none !important; background: transparent !important; border: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</helmet>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cxLogo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs></svg>
+<div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 200; background: linear-gradient(90deg, #0ea5e9 0%, #22d3ee 55%, transparent 100%);"></div>
+
+<nav style="position: fixed; top: 2px; left: 0; right: 0; z-index: 100; height: 62px; background: rgba(15,23,42,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(34,211,238,0.10);">
+  <div style="height: 100%; display: flex; align-items: center; padding: 0 32px; gap: 28px; justify-content: space-between; max-width: 1400px; margin: 0 auto;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+      <svg height="18" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block;">
+        <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+        <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+        <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+        <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+        <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+        <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" style="display: none;" aria-hidden="true">
+    <div class="nav-items" style="display: flex; align-items: center; gap: 26px; flex: 1;">
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Platform
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 350px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="platform.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Cognous Platform</span>
+              <span class="t-meta">The execution and governance layer</span>
+            </a>
+            <a href="iss.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">ISS substrate</span>
+              <span class="t-meta">Governed reasoning beneath any model</span>
+            </a>
+            <a href="navalia.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Navalia</span>
+              <span class="t-meta">Material-change intelligence engine</span>
+            </a>
+            <a href="who_it_is_for.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Who it is for</span>
+              <span class="t-meta">Roles, verticals, and where it lands</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="how_it_works.html" class="nav-link">How it works</a>
+      <div class="nav-drop">
+        <span class="nav-link nav-active" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Open Control Stack
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 330px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="open_control_stack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Overview</span>
+              <span class="t-meta">The open reference stack</span>
+            </a>
+            <a href="agent_action_manifest.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Action Manifest</span>
+              <span class="t-meta">Declare what an agent may propose</span>
+            </a>
+            <a href="agent_control_plane.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Control Plane</span>
+              <span class="t-meta">Authorize and gate actions at runtime</span>
+            </a>
+            <a href="agent_replay_bundle.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Replay Bundle</span>
+              <span class="t-meta">Package a run for reconstruction</span>
+            </a>
+            <a href="agent_governance_evidence_pack.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Agent Governance Evidence Pack</span>
+              <span class="t-meta">Turn records into review material</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 300px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="resources.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">All resources</span>
+              <span class="t-meta">Reading by audience</span>
+            </a>
+            <a href="blog.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Blog</span>
+              <span class="t-meta">Notes on governing enterprise AI</span>
+            </a>
+            <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">GitHub</span>
+              <span class="t-meta">Source, schemas, conformance tests</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <span class="nav-link" style="display: inline-flex; align-items: center; gap: 5px; cursor: default;" tabindex="0">About
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+        <div class="nav-menu">
+          <div style="width: 290px; background: #131f30; border: 1px solid rgba(34,211,238,0.16); border-radius: 8px; padding: 8px; box-shadow: 0 12px 32px rgba(0,0,0,0.55); display: flex; flex-direction: column; gap: 2px;">
+            <a href="about.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">About Cognous</span>
+              <span class="t-meta">Company, team, and thesis</span>
+            </a>
+            <a href="founders_letter.html" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Founder's letter</span>
+              <span class="t-meta">Why Cognous exists</span>
+            </a>
+            <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="card-hover" style="border-radius: 6px; padding: 10px 12px; display: block;">
+              <span class="t-sm" style="color: #e2e8f0; font-weight: 700; display: block;">Contact</span>
+              <span class="t-meta">info@cogno.us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+      <label for="nav-toggle" class="nav-burger" aria-label="Open menu" style="display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid rgba(34,211,238,0.20); border-radius: 4px; color: #cbd5e1; cursor: pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+      </label>
+      <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link" style="display: inline-flex; align-items: center; gap: 7px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        GitHub
+      </a>
+      <a href="mailto:info@cogno.us" target="_blank" rel="noopener" style="height: 34px; padding: 8px 16px; font-size: 11px; font-weight: 700; color: #ffffff; background: #715aa6; border: 1px solid #715aa6; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px;">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding-top: 120px; padding-bottom: 60px; min-height: 100vh; display: flex; align-items: center; background: #0f172a;">
+  <div class="section-wrap" style="width: 100%;">
+    <div class="hero-grid" style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;">
+      <div>
+        <div class="t-eyebrow" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;"><span style="color:#64748b;">Replay</span><span style="color:rgba(34,211,238,0.4);">/</span><span>Agent Replay Bundle</span></div>
+        <h1 class="t-h1" style="margin-bottom: 18px; max-width: 540px;">Agent Replay Bundle</h1>
+        <p class="t-body" style="margin-bottom: 8px; max-width: 520px; color: #cbd5e1; font-size: 17px;">Portable replay records for AI-agent runs.</p>
+        <p class="t-body" style="margin-bottom: 28px; max-width: 520px;">A public schema and reference validator for packaging AI-agent runs into portable evidence artifacts. A replay bundle records the task frame, action proposals, policy decisions, evaluation traces, blocked actions, authority records, reliance records, final output, validation report, redaction metadata, and signature metadata.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+          <a href="https://github.com/cogno-us/cognous-agent-replay-bundle" target="_blank" rel="noopener" class="btn-primary" style="background: #0FBF3E; color: #ffffff;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            View on GitHub
+          </a>
+          <a href="open_control_stack.html" class="btn-secondary">See stack overview</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; max-width: 540px; margin-top: 26px;" aria-label="Project metadata">
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>Apache 2.0</span>
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>Bundle schema</span>
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>Redaction helper</span>
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>Signing helper</span>
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>CLI</span>
+          <span style="font-family: Consolas, 'SF Mono', Menlo, monospace; font-size: 11px; letter-spacing: 0.02em; color: #94a3b8; background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.16); border-radius: 4px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 7px;"><span style="width: 5px; height: 5px; border-radius: 50%; background: #22d3ee;"></span>Tests</span>
+        </div>
+        <div style="margin-top: 26px; max-width: 520px;">
+          <div class="t-label" style="margin-bottom: 12px;">Documentation</div>
+                    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <a href="docs/Cognous_Agent_Replay_Bundle_Explainer_070526.pdf" target="_blank" rel="noopener" class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; text-decoration: none;">
+              <div class="t-label" style="margin-bottom: 10px;">For decision-makers</div>
+              <h3 class="t-h3" style="margin-bottom: 6px;">Business overview</h3>
+              <p class="t-sm" style="flex-grow: 1; margin-bottom: 14px;">A non-technical summary of what it does and why it matters.</p>
+              <span class="nav-link" style="color: #22d3ee; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">Read PDF →</span>
+            </a>
+            <a href="docs/Cognous_Agent_Replay_Bundle_Whitepaper_070526.pdf" target="_blank" rel="noopener" class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; text-decoration: none;">
+              <div class="t-label" style="margin-bottom: 10px;">For architects, engineers &amp; developers</div>
+              <h3 class="t-h3" style="margin-bottom: 6px;">Technical whitepaper</h3>
+              <p class="t-sm" style="flex-grow: 1; margin-bottom: 14px;">The full specification, schema, and reference design.</p>
+              <span class="nav-link" style="color: #22d3ee; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">Read PDF →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bundle visual -->
+      <div class="hero-visual" style="display: flex; justify-content: center;">
+        <div style="width: 100%; max-width: 340px; background: #1e293b; border: 1px solid rgba(34,211,238,0.20); border-radius: 8px; box-shadow: 0 0 24px rgba(34,211,238,0.05); overflow: hidden;" role="img" aria-label="Replay bundle contents">
+          <div style="padding: 12px 16px; border-bottom: 1px solid rgba(34,211,238,0.10); display: flex; align-items: center; gap: 10px;">
+            <i data-lucide="package" style="width: 15px; height: 15px; color: #22d3ee;"></i>
+            <span class="t-label">Agent replay bundle</span>
+            <span class="t-meta t-mono" style="margin-left: auto;">signed</span>
+          </div>
+          <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">run_frame</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">action_proposals</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">policy_decisions</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">evaluation_traces</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">blocked_actions</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">reliance_records</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">validation_report</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="width:3px;height:3px;border-radius:50%;background:rgba(34,211,238,0.5);"></span><span class="t-sm t-mono" style="color:#cbd5e1;">signature</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section style="padding: 72px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">The problem</div>
+    <h2 class="t-h2" style="margin-bottom: 12px; max-width: 620px;">Agent traces are fragmented across tools and systems.</h2>
+    <p class="t-body" style="margin-bottom: 36px; max-width: 720px;">Agent runs often span prompts, tools, APIs, databases, files, workflow systems, and policy checks. After an incident or review request, teams may not have a single portable artifact that reconstructs what happened.</p>
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">01</div><h3 class="t-h3" style="margin-bottom: 6px;">Logs are scattered</h3><p class="t-sm">Agent activity lands in prompt logs, tool logs, API logs, and workflow systems, with no single place that reconstructs the run.</p></div>
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">02</div><h3 class="t-h3" style="margin-bottom: 6px;">Tool calls are framework-specific</h3><p class="t-sm">Each agent framework records tool calls differently, so evidence cannot move cleanly between systems or teams.</p></div>
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">03</div><h3 class="t-h3" style="margin-bottom: 6px;">Blocked actions may be missing</h3><p class="t-sm">When an action is denied, the denial often never reaches durable storage, leaving gaps in the record.</p></div>
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">04</div><h3 class="t-h3" style="margin-bottom: 6px;">Source reliance is hard to reconstruct</h3><p class="t-sm">Which file, API, or model output the agent relied on is rarely captured in a form that survives the run.</p></div>
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">05</div><h3 class="t-h3" style="margin-bottom: 6px;">Exports lack integrity metadata</h3><p class="t-sm">Ad-hoc exports carry no consistent proof of integrity, no redaction record, and no validation result.</p></div>
+      <div class="card-hover" style="background: #0f172a; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-meta" style="margin-bottom: 8px;">06</div><h3 class="t-h3" style="margin-bottom: 6px;">Runs cannot be reconstructed later</h3><p class="t-sm">Without one portable artifact, reconstructing an agent run after the fact depends on stitching together systems that may have moved on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT DOES -->
+<section style="padding: 72px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">What it does</div>
+    <h2 class="t-h2" style="margin-bottom: 36px; max-width: 620px;">A portable evidence package for agent runs.</h2>
+    <div class="grid-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">A — Frame</span><h3 class="t-h3" style="margin-bottom: 6px;">Run frame</h3><p class="t-sm">The task context the run began from, including inputs and configuration.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">B — Proposals</span><h3 class="t-h3" style="margin-bottom: 6px;">Action proposals</h3><p class="t-sm">Every action the agent proposed during the run, before any decision.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">C — Decisions</span><h3 class="t-h3" style="margin-bottom: 6px;">Policy decisions</h3><p class="t-sm">The allow, block, or escalate outcome recorded for each proposed action.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">D — Traces</span><h3 class="t-h3" style="margin-bottom: 6px;">Policy evaluation traces</h3><p class="t-sm">The ordered rule path behind each decision, showing which rule matched.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">E — Blocked</span><h3 class="t-h3" style="margin-bottom: 6px;">Blocked actions</h3><p class="t-sm">Structured records of the actions that were denied, and the reasons why.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">F — Authority</span><h3 class="t-h3" style="margin-bottom: 6px;">Authority records</h3><p class="t-sm">Who or what authorized an action, and under what scope.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">G — Reliance</span><h3 class="t-h3" style="margin-bottom: 6px;">Reliance records</h3><p class="t-sm">The tools, files, APIs, and outputs the agent relied on across the run.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">H — Output</span><h3 class="t-h3" style="margin-bottom: 6px;">Final output</h3><p class="t-sm">The result the agent produced once the run completed.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">I — Validation</span><h3 class="t-h3" style="margin-bottom: 6px;">Validation report</h3><p class="t-sm">The semantic consistency check across the bundle's records.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">J — Redaction</span><h3 class="t-h3" style="margin-bottom: 6px;">Redaction metadata</h3><p class="t-sm">What was redacted from the exported copy, while preserving structure.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 18px;"><span class="t-label" style="display:block; margin-bottom:10px;">K — Signature</span><h3 class="t-h3" style="margin-bottom: 6px;">Signature metadata</h3><p class="t-sm">Optional integrity metadata so the bundle can be checked for modification.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT IS VALUABLE -->
+<section style="padding: 72px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">Why it is valuable</div>
+    <h2 class="t-h2" style="margin-bottom: 32px; max-width: 560px;">One structure for agent-run evidence.</h2>
+    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px;">
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Creates a common structure for agent-run evidence</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Supports audit and incident reconstruction</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Separates runtime evidence from any one framework</span></div>
+      </div>
+      <div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Makes blocked actions and reliance visible</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Provides a basis for validation, redaction, signing, and governance review</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><i data-lucide="check" style="color: #22d3ee; width: 15px; height: 15px; flex-shrink: 0;"></i><span class="t-body">Can be emitted by Agent Control Plane or adapted by other systems</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT FITS -->
+<section style="padding: 72px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">How it fits in the stack</div>
+    <h2 class="t-h2" style="margin-bottom: 20px; max-width: 560px;">The Replay layer of the Open Control Stack.</h2>
+    <p class="t-body" style="margin-bottom: 28px; max-width: 720px;">Agent Replay Bundle is the Replay layer. It packages the output of runtime control into a portable artifact that can be validated, redacted, signed, stored, or transformed into a business-facing evidence pack.</p>
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <a href="agent_action_manifest.html" style="background: #24334a; border: 1px solid rgba(34,211,238,0.12); color: #94a3b8; border-radius: 6px; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Declare</a>
+      <i data-lucide="chevron-right" style="color: rgba(34,211,238,0.35); width: 16px; height: 16px;"></i>
+      <a href="agent_control_plane.html" style="background: #24334a; border: 1px solid rgba(34,211,238,0.12); color: #94a3b8; border-radius: 6px; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Control</a>
+      <i data-lucide="chevron-right" style="color: rgba(34,211,238,0.35); width: 16px; height: 16px;"></i>
+      <span style="background: #24334a; border: 1px solid rgba(34,211,238,0.28); color: #22d3ee; border-radius: 6px; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Replay</span>
+      <i data-lucide="chevron-right" style="color: rgba(34,211,238,0.35); width: 16px; height: 16px;"></i>
+      <a href="agent_governance_evidence_pack.html" style="background: #24334a; border: 1px solid rgba(34,211,238,0.12); color: #94a3b8; border-radius: 6px; padding: 10px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Evidence</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS NOT + OPEN SOURCE -->
+<section style="padding: 72px 0; background: #1e293b;">
+  <div class="section-wrap">
+    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;">
+      <div>
+        <div class="t-eyebrow" style="margin-bottom: 12px;">What it is not</div>
+        <h2 class="t-h2" style="margin-bottom: 20px;">A portable artifact — not a platform.</h2>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not an agent framework</span></div>
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not a replay viewer</span></div>
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not a model runtime</span></div>
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not a hosted audit platform</span></div>
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(34,211,238,0.08);"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not proof that the model output is correct</span></div>
+          <div style="display: flex; gap: 12px; align-items: baseline; padding: 9px 0;"><span style="color: rgba(192,57,43,0.60); flex-shrink: 0;">×</span><span class="t-sm">Not a replacement for application logs or security controls</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="t-eyebrow" style="margin-bottom: 12px;">Open-source contents</div>
+        <h2 class="t-h2" style="margin-bottom: 20px;">What is in the repository.</h2>
+        <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Replay bundle schema</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Pydantic object model</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Validator</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Redaction helper</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Signing helper</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">CLI</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Example bundles</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Tests</span></div>
+          <div style="display: flex; gap: 8px; align-items: center; padding: 4px 0;"><span style="width: 3px; height: 3px; border-radius: 50%; background: rgba(34,211,238,0.5); flex-shrink: 0;"></span><span class="t-sm">Documentation</span></div>
+        </div>
+        <a href="https://github.com/cogno-us/cognous-agent-replay-bundle" target="_blank" rel="noopener" class="btn-secondary" style="margin-top: 24px; background: #0FBF3E; color: #ffffff; border-color: #0FBF3E;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT IS FOR -->
+<section style="padding: 72px 0; background: #0f172a;">
+  <div class="section-wrap">
+    <div class="t-eyebrow" style="margin-bottom: 12px;">Who it is for</div>
+    <h2 class="t-h2" style="margin-bottom: 32px; max-width: 640px;">Built for teams that need portable agent-run evidence.</h2>
+    <div class="grid-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-label" style="margin-bottom: 8px;">Security and incident teams</div><p class="t-sm">Need a single portable artifact that reconstructs an agent run during investigation.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-label" style="margin-bottom: 8px;">Governance and compliance teams</div><p class="t-sm">Need consistent, framework-independent evidence of what an agent run contained.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-label" style="margin-bottom: 8px;">AI platform teams</div><p class="t-sm">Need a common export format their control plane and tools can emit and consume.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-label" style="margin-bottom: 8px;">Auditors and reviewers</div><p class="t-sm">Need to inspect blocked actions, reliance, and decisions without access to live systems.</p></div>
+      <div class="card-hover" style="background: #1e293b; border: 1px solid rgba(34,211,238,0.12); border-radius: 8px; padding: 20px;"><div class="t-label" style="margin-bottom: 8px;">Developers building agent workflows</div><p class="t-sm">Need a schema and validator to package runs into replayable evidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding: 84px 0; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.10);">
+  <div class="section-wrap" style="text-align: center;">
+    <div class="t-eyebrow" style="margin-bottom: 16px;">Get started</div>
+    <h2 class="t-h2" style="margin-bottom: 12px; max-width: 520px; margin-left: auto; margin-right: auto;">Make agent runs reconstructable.</h2>
+    <div style="display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 20px;">
+      <a href="https://github.com/cogno-us/cognous-agent-replay-bundle" target="_blank" rel="noopener" class="btn-primary" style="background: #0FBF3E; color: #ffffff;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 56px 0 32px; background: #1e293b; border-top: 1px solid rgba(34,211,238,0.08);">
+  <div class="section-wrap">
+    <div class="grid-4" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+      <div style="max-width: 340px;">
+        <svg height="22" viewBox="0 147 381.12 45" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" aria-label="Cognous" style="display: block; margin-bottom: 14px;">
+          <path d="M0,169.7c0-12.84,9.06-21.84,21.96-21.84,6.12,0,11.46,2.22,15.66,6.48l-4.68,4.32c-2.88-2.88-6.42-4.38-10.74-4.38-8.94,0-15.12,6.3-15.12,15.42s6.18,15.42,15.12,15.42c4.2,0,8.28-1.62,11.22-4.5l4.5,4.68c-4.2,4.14-9.54,6.24-15.9,6.24-13.02,0-22.02-9-22.02-21.84Z"></path>
+          <path d="M53.1,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM89.28,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M152.46,166.82v17.82c-4.68,4.68-10.2,6.9-17.1,6.9-13.08,0-21.72-8.64-21.72-21.84s9.06-21.84,22.2-21.84c6,0,11.46,2.22,15.6,6.48l-4.5,4.5c-2.82-2.82-7.08-4.5-11.16-4.5-8.94,0-15.12,6.18-15.12,15.36s5.76,15.36,14.7,15.36c4.2,0,7.62-1.08,10.62-3.42v-8.64h-11.76v-6.18h18.24Z"></path>
+          <path d="M208.8,148.7v42h-6.36l-22.68-30,.06,13.38v16.62h-7.02v-42h6.36l22.68,30-.06-12.54v-17.46h7.02Z"></path>
+          <path d="M228.6,169.7c0-13.08,8.7-21.9,21.66-21.9s21.6,8.82,21.6,21.9-8.7,21.9-21.6,21.9-21.66-8.82-21.66-21.9ZM264.78,169.7c0-9.18-5.88-15.42-14.52-15.42s-14.58,6.24-14.58,15.42,5.88,15.42,14.58,15.42,14.52-6.24,14.52-15.42Z"></path>
+          <path d="M291.12,173.3v-24.6h6.96v24.48c0,7.26,4.32,11.88,11.04,11.88s11.04-4.62,11.04-11.88v-24.48h6.96v24.6c0,11.22-6.96,18.24-18,18.24s-18-7.02-18-18.24Z"></path>
+          <path d="M346.26,185.66l3.66-5.28c3.54,2.94,8.88,4.74,14.04,4.74,6.12,0,10.08-2.46,10.08-6.24,0-3.48-3.24-5.34-10.5-6.3-11.4-1.56-16.26-5.34-16.26-12.72s6.66-12,16.26-12c5.58,0,11.28,1.92,15.54,5.22l-3.54,4.98c-3.48-2.64-7.8-4.02-11.94-4.02-5.52,0-9.42,2.46-9.42,5.88s3,5.28,10.08,6.3c11.88,1.74,16.86,5.34,16.86,12.48,0,7.74-6.84,12.84-17.16,12.84-6.36,0-12.78-2.1-17.7-5.88Z"></path>
+        </svg>
+        <p class="t-sm">Cognous is Enterprise AI Optimization Infrastructure — the execution layer that makes enterprise AI economically sustainable, operationally reliable, and governable at scale.</p>
+        <p class="t-meta" style="margin-top: 12px;">Seattle, Washington · cogno.us</p>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Platform</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="platform.html" class="nav-link">Cognous Platform</a>
+          <a href="iss.html" class="nav-link">ISS substrate</a>
+          <a href="navalia.html" class="nav-link">Navalia</a>
+          <a href="how_it_works.html" class="nav-link">How it works</a>
+          <a href="who_it_is_for.html" class="nav-link">Who it is for</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Open Control Stack</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="open_control_stack.html" class="nav-link">Overview</a>
+          <a href="agent_action_manifest.html" class="nav-link">Agent Action Manifest</a>
+          <a href="agent_control_plane.html" class="nav-link">Agent Control Plane</a>
+          <a href="agent_replay_bundle.html" class="nav-link">Agent Replay Bundle</a>
+          <a href="agent_governance_evidence_pack.html" class="nav-link">Agent Governance Evidence Pack</a>
+        </div>
+      </div>
+      <div>
+        <div class="t-label" style="margin-bottom: 14px;">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <a href="about.html" class="nav-link">About Cognous</a>
+          <a href="founders_letter.html" class="nav-link">Founder's letter</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="https://github.com/cogno-us/cognous-open-control-stack" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+          <a href="mailto:info@cogno.us" target="_blank" rel="noopener" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 22px; border-top: 1px solid rgba(34,211,238,0.08); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <span class="t-meta">© 2026 Cognous · Seattle, WA</span>
+      <span class="t-meta">Open Control Stack is Apache-2.0 · Not ODES and does not define ODES conformance</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const init = () => { if (window.lucide) window.lucide.createIcons(); };
+    if (window.lucide) { init(); }
+    else {
+      const t = setInterval(() => { if (window.lucide) { init(); clearInterval(t); } }, 80);
+      setTimeout(() => clearInterval(t), 5000);
+    }
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
